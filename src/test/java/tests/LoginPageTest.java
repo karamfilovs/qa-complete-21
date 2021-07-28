@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import utils.Constants;
+import utils.Defaults;
 
 public class LoginPageTest extends BaseTest {
 
@@ -16,10 +16,10 @@ public class LoginPageTest extends BaseTest {
     public void canLoginWithValidCredentials() {
         loginPage.navigate();
         Assertions.assertEquals("QA Ground", loginPage.getCompanyName());
-        loginPage.enterEmail(Constants.EMAIL);
-        loginPage.enterPassword(Constants.PASSWORD);
+        loginPage.enterEmail(Defaults.EMAIL);
+        loginPage.enterPassword(Defaults.PASSWORD);
         loginPage.clickLoginButton();
-        Assertions.assertEquals(Constants.EMAIL, homePage.getLoggedUser());
+        Assertions.assertEquals(Defaults.EMAIL, homePage.getLoggedUser());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseTest {
     public void cantLoginWithInvalidPassword() {
         loginPage.navigate();
         Assertions.assertEquals("QA Ground", loginPage.getCompanyName());
-        loginPage.enterEmail(Constants.EMAIL);
+        loginPage.enterEmail(Defaults.EMAIL);
         loginPage.enterPassword("Dummy password");
         loginPage.clickLoginButton();
         Assertions.assertEquals("Грешно потребителско име или парола. Моля, опитайте отново.", loginPage.getErrorMessage());

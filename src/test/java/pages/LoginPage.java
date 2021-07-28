@@ -2,9 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.Constants;
-
-import java.util.concurrent.ConcurrentSkipListMap;
+import utils.Defaults;
 
 public class LoginPage extends BasePage {
     private final String URL = "/login";
@@ -21,8 +19,8 @@ public class LoginPage extends BasePage {
 
     public void defaultLogin(){
         navigate();
-        enterEmail(Constants.EMAIL);
-        enterPassword(Constants.PASSWORD);
+        enterEmail(Defaults.EMAIL);
+        enterPassword(Defaults.PASSWORD);
         clickLoginButton();
     }
 

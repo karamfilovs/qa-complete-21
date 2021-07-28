@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.Constants;
+import utils.Defaults;
 
 public class BasePage {
     private WebDriver driver;
@@ -44,7 +44,7 @@ public class BasePage {
     }
 
     protected void navigateTo(String url){
-        System.out.println("Navigating to: " + Constants.BASE_URL + url);
-        driver.navigate().to(Constants.BASE_URL + url);
+        System.out.println("Navigating to: " + Defaults.BASE_URL + url);
+        driver.navigate().to(Defaults.BASE_URL + url);
     }
 }
