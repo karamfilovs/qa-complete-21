@@ -14,45 +14,48 @@ public class LoginPageTest extends BaseTest {
     @Tag("positive")
     @DisplayName("Can login with valid credentials")
     public void canLoginWithValidCredentials() {
-        loginPage.navigate();
-        Assertions.assertEquals("QA Ground", loginPage.getCompanyName());
-        loginPage.enterEmail(Defaults.EMAIL);
-        loginPage.enterPassword(Defaults.PASSWORD);
-        loginPage.clickLoginButton();
-        Assertions.assertEquals(Defaults.EMAIL, homePage.getLoggedUser());
+        webApp.loginPage().navigate();
+        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        webApp.loginPage()
+                .enterEmail(Defaults.EMAIL)
+                .enterPassword(Defaults.PASSWORD)
+                .clickLoginButton();
+        Assertions.assertEquals(Defaults.EMAIL, webApp.homePage().getLoggedUser());
     }
 
     @Test
     @Tag("smoke")
     @DisplayName("Cant login with invalid password")
     public void cantLoginWithInvalidPassword() {
-        loginPage.navigate();
-        Assertions.assertEquals("QA Ground", loginPage.getCompanyName());
-        loginPage.enterEmail(Defaults.EMAIL);
-        loginPage.enterPassword("Dummy password");
-        loginPage.clickLoginButton();
-        Assertions.assertEquals("Грешно потребителско име или парола. Моля, опитайте отново.", loginPage.getErrorMessage());
+        webApp.loginPage().navigate();
+        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        webApp.loginPage()
+                .enterEmail(Defaults.EMAIL)
+                .enterPassword("Dummy password")
+                .clickLoginButton();
+        Assertions.assertEquals("Грешно потребителско име или парола. Моля, опитайте отново.", webApp.loginPage().getErrorMessage());
     }
 
     @Test
     @Tag("smoke")
     @DisplayName("Cant login with invalid email")
     public void cantLoginWithInvalidEmail() {
-        loginPage.navigate();
-        Assertions.assertEquals("QA Ground", loginPage.getCompanyName());
-        loginPage.enterEmail("test@qaground.com");
-        loginPage.enterPassword("Dummy password");
-        loginPage.clickLoginButton();
-        Assertions.assertEquals("Грешно потребителско име или парола. Моля, опитайте отново.", loginPage.getErrorMessage());
+        webApp.loginPage().navigate();
+        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        webApp.loginPage()
+                .enterEmail("test@qaground.com")
+                .enterPassword("Dummy password")
+                .clickLoginButton();
+        Assertions.assertEquals("Грешно потребителско име или парола. Моля, опитайте отново.", webApp.loginPage().getErrorMessage());
     }
 
     @Test
     @Tag("smoke")
     @DisplayName("Cant login with blank credentials")
     public void cantLoginWithBlankCredentials() {
-        loginPage.navigate();
-        Assertions.assertEquals("QA Ground", loginPage.getCompanyName());
-        loginPage.clickLoginButton();
-        Assertions.assertEquals("Моля, попълнете вашия email", loginPage.getErrorMessage());
+        webApp.loginPage().navigate();
+        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        webApp.loginPage().clickLoginButton();
+        Assertions.assertEquals("Моля, попълнете вашия email", webApp.loginPage().getErrorMessage());
     }
 }
