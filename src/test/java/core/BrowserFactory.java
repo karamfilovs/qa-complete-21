@@ -55,6 +55,10 @@ public class BrowserFactory {
         return driver;
     }
 
+    public void quit(){
+        driver.quit();
+    }
+
 
     private boolean isHeadless() {
         String headless = System.getProperty("headless");
