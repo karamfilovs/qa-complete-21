@@ -1,5 +1,6 @@
 package core;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -66,6 +67,21 @@ public class BrowserFactory {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public static void downloadDriver(String driverType) {
+        switch (driverType) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                break;
+            default: throw new IllegalArgumentException("Not supported browser!");
         }
     }
 }

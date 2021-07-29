@@ -2,7 +2,6 @@ package tests;
 
 import api.HTTPClient;
 import core.API;
-import core.BrowserDownload;
 import core.BrowserFactory;
 import core.WebApp;
 import org.junit.jupiter.api.AfterEach;
@@ -24,7 +23,7 @@ public class BaseTest {
     @BeforeAll
     private static void beforeAll() {
         HTTPClient.setupRequestDefaults();
-        BrowserDownload.downloadDriver(Defaults.BROWSER);
+        BrowserFactory.downloadDriver(Defaults.BROWSER);
     }
 
     @BeforeEach
