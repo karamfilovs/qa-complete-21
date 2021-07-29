@@ -31,7 +31,7 @@ public class BaseTest {
 
     @BeforeEach
     private void beforeEachTest(TestInfo info) {
-        LOGGER.info("STARTING TEST:" + info.getDisplayName());
+        LOGGER.info("STARTING TEST: " + info.getDisplayName());
         browserFactory = new BrowserFactory();
         driver = browserFactory.startBrowser(Defaults.BROWSER);
         webApp = new WebApp(driver);
@@ -52,7 +52,8 @@ public class BaseTest {
                 WebDriverManager.firefoxdriver().setup();
                 break;
             case "edge":
-                WebDriverManager.edgedriver().arch64().setup();
+                WebDriverManager.edgedriver().setup();
+                break;
             default: throw new IllegalArgumentException("Not supported browser!");
         }
     }
