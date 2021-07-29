@@ -33,4 +33,14 @@ public class HTTPClient {
         return response;
     }
 
+    protected Response post(String body, String url) {
+        Response response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .log().all().body(body)
+                .when()
+                .post(url);
+        response.prettyPrint();
+        return response;
+    }
+
 }

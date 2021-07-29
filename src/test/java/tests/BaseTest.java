@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.ClientPage;
 import pages.HomePage;
 import pages.ItemPage;
 import pages.LoginPage;
@@ -17,6 +18,8 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected ItemPage itemPage;
+    protected ClientPage clientPage;
+
 
 
     @BeforeAll
@@ -33,6 +36,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         itemPage = new ItemPage(driver);
+        clientPage = new ClientPage(driver);
     }
 
     @AfterEach
