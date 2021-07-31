@@ -2,9 +2,12 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import utils.Defaults;
 
 public class LoginPage extends BasePage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
     private final String URL = "/login";
     private By emailSelector = By.id("loginusername");
     private By passwordSelector = By.id("loginpassword");
@@ -24,16 +27,22 @@ public class LoginPage extends BasePage {
         clickLoginButton();
     }
 
-    public void enterEmail(String email) {
+    public LoginPage enterEmail(String email) {
+        LOGGER.info("Entering email:" + email);
         type(emailSelector, email);
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public LoginPage enterPassword(String password) {
+        LOGGER.info("Entering password:" + password);
         type(passwordSelector, password);
+        return this;
     }
 
-    public void clickLoginButton(){
+    public LoginPage clickLoginButton(){
+        LOGGER.info("Click Login button");
         click(loginButtonSelector);
+        return this;
     }
 
     public String getErrorMessage(){
@@ -48,7 +57,9 @@ public class LoginPage extends BasePage {
         scroll(loginButtonSelector);
     }
 
-    public void navigate(){
+    public LoginPage navigate(){
+        LOGGER.info("Navigating to:" + URL);
         navigateTo(URL);
+        return this;
     }
 }

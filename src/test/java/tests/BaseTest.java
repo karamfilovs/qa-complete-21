@@ -1,42 +1,42 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import api.HTTPClient;
+import core.API;
+import core.BrowserFactory;
+import core.WebApp;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.ItemPage;
-import pages.LoginPage;
-import java.time.Duration;
+import org.junit.jupiter.api.TestInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import utils.Defaults;
 
 
 public class BaseTest {
-    protected WebDriver driver;
-    protected LoginPage loginPage;
-    protected HomePage homePage;
-    protected ItemPage itemPage;
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseTest.class);
+    private BrowserFactory browserFactory;
+    protected WebApp webApp;
+    protected API api = new API();
 
 
     @BeforeAll
     private static void beforeAll() {
-        WebDriverManager.chromedriver().setup();
+        HTTPClient.setupRequestDefaults();
+        BrowserFactory.downloadDriver(Defaults.BROWSER);
     }
 
     @BeforeEach
-    private void beforeEachTest() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
-        itemPage = new ItemPage(driver);
+    private void beforeEachTest(TestInfo info) {
+        LOGGER.info("STARTING TEST: " + info.getDisplayName());
+        browserFactory = new BrowserFactory();
+        webApp = new WebApp(browserFactory.startBrowser(Defaults.BROWSER));
     }
 
     @AfterEach
     private void afterEachTest() {
-        driver.quit();
+        browserFactory.quit();
     }
+
+
 }
