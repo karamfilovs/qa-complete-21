@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ public class BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(BasePage.class);
     private static final int MIN_WAIT_MILLIS = 5000;
     private WebDriver driver;
+    private Actions action;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -41,13 +44,14 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(selector)));
     }
 
-
     private void waitForElementToBeClickable(By selector) {
         WebDriverWait wait = new WebDriverWait(driver, MIN_WAIT_MILLIS);
         wait.until(ExpectedConditions.elementToBeClickable(selector));
     }
 
     protected void scroll(By selector) {
+        action = new Actions(driver);
+        action.moveToElement(driver.findElement(selector)).perform();
     }
 
     protected void navigateTo(String url) {

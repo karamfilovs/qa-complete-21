@@ -20,7 +20,6 @@ public class ItemPageTest extends BaseTest {
                 .clickCreateNewItemButton()
                 .enterName("Fluent item name")
                 .enterPrice(5)
-                .enterWarrantyPeriod(5)
                 .clickSaveButton();
 
         //Verify item creation is successful

@@ -5,5 +5,5 @@ public class Defaults {
     public static final String EMAIL =  System.getProperty("email");
     public static final String PASSWORD = System.getProperty("password");
     public static final String BROWSER = System.getProperty("browser");
-
+    public static final String COMPANY = System.getProperty("company");
 }
