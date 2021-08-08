@@ -58,7 +58,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage navigate(){
-        LOGGER.info("Navigating to:" + URL);
+        LOGGER.info("Navigating to:" +Defaults.BASE_URL+ URL);
         navigateTo(URL);
         return this;
     }

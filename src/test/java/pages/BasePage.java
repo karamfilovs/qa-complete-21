@@ -1,5 +1,7 @@
 package pages;
 
+import core.BrowserFactory;
+import core.WebApp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,7 +30,7 @@ public class BasePage {
     }
 
     protected String getText(By selector) {
-        LOGGER.info("Retrieving text");
+        LOGGER.info("Retrieving text" );
         waitForVisibilityOf(selector);
         //Sync logic (explicit wait)
         String text = driver.findElement(selector).getText().trim();
@@ -50,7 +52,7 @@ public class BasePage {
     protected void scroll(By selector) {
     }
 
-    protected void navigateTo(String url) {
+   protected void navigateTo(String url) {
         driver.navigate().to(Defaults.BASE_URL + url);
     }
 }

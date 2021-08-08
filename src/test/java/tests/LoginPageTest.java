@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("Can login with valid credentials")
     public void canLoginWithValidCredentials() {
         webApp.loginPage().navigate();
-        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        Assertions.assertEquals("ekioLTD", webApp.loginPage().getCompanyName());
         webApp.loginPage()
                 .enterEmail(Defaults.EMAIL)
                 .enterPassword(Defaults.PASSWORD)
@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("Cant login with invalid password")
     public void cantLoginWithInvalidPassword() {
         webApp.loginPage().navigate();
-        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        Assertions.assertEquals("ekioLTD", webApp.loginPage().getCompanyName());
         webApp.loginPage()
                 .enterEmail(Defaults.EMAIL)
                 .enterPassword("Dummy password")
@@ -41,7 +41,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("Cant login with invalid email")
     public void cantLoginWithInvalidEmail() {
         webApp.loginPage().navigate();
-        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        Assertions.assertEquals("ekioLTD", webApp.loginPage().getCompanyName());
         webApp.loginPage()
                 .enterEmail("test@qaground.com")
                 .enterPassword("Dummy password")
@@ -54,7 +54,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("Cant login with blank credentials")
     public void cantLoginWithBlankCredentials() {
         webApp.loginPage().navigate();
-        Assertions.assertEquals("QA Ground", webApp.loginPage().getCompanyName());
+        Assertions.assertEquals("ekioLTD", webApp.loginPage().getCompanyName());
         webApp.loginPage().clickLoginButton();
         Assertions.assertEquals("Моля, попълнете вашия email", webApp.loginPage().getErrorMessage());
     }

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utils.Defaults;
 
 public class ItemPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(ItemPage.class);
@@ -31,7 +32,7 @@ public class ItemPage extends BasePage {
      * Navigates to item page
      */
     public ItemPage navigate(){
-        LOGGER.info("Navigating to url:" + URL);
+        LOGGER.info("Navigating to url:" + Defaults.BASE_URL+ URL);
         navigateTo(URL);
         return this;
     }
