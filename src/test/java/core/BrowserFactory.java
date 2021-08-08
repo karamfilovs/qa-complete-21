@@ -8,9 +8,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.Defaults;
 
 public class BrowserFactory {
     private WebDriver driver;
+
 
     public WebDriver startBrowser(String browserType) {
         switch (browserType.toLowerCase()) {

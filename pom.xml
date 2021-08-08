@@ -23,12 +23,12 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <url>https://st2016.inv.bg</url>
-                        <email>karamfilovs@gmail.com</email>
-                        <password>123456</password>
+                        <url>https://ekioltd.inv.bg</url>
+                        <email>emil@thenet.bg</email>
+                        <password>bmwpower</password>
                         <headless>false</headless>
-                        <browser>edge</browser>
-                        <company>QA Ground</company>
+                        <browser>chrome</browser>
+                        <company>ekioLTD</company>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

@@ -18,6 +18,7 @@ public class WebApp {
         this.driver = driver;
     }
 
+
     public LoginPage loginPage(){
         if(loginPage == null){
             loginPage = new LoginPage(driver);
